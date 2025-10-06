@@ -1,0 +1,13 @@
+{
+  "out": "stale_large_files.csv",
+  "ext": null,
+  "min_size_mb": 200,
+  "accessed_within": null,
+  "not_accessed_within": 60,
+  "modified_within": null,
+  "not_modified_within": null,
+  "created_within": null,
+  "not_created_within": null,
+  "owned_by": null,
+  "logic": "all"
+}

@@ -87,6 +87,33 @@ SCAN_PATH=/home/username/Documents  # Required: Directory to analyze
 }
 ```
 
+#### Complete Configuration Reference
+
+| Field | Type | Possible Values | Description |
+|-------|------|-----------------|-------------|
+| `"out"` | String | Any valid filename | Output CSV file name (e.g., `"results.csv"`, `"large_files.csv"`) |
+| `"ext"` | Array or null | `[".mp4", ".jpg"]` or `null` | File extensions to include. Use `null` to include all extensions |
+| `"min_size_mb"` | Number or null | Any positive number or `null` | Minimum file size in MB (e.g., `0.1`, `50`, `1000`) |
+| `"max_size_mb"` | Number or null | Any positive number or `null` | Maximum file size in MB (e.g., `100`, `500`, `5000`) |
+| `"accessed_within"` | Number or null | Any positive integer or `null` | Files accessed within last N days (e.g., `1`, `7`, `30`) |
+| `"not_accessed_within"` | Number or null | Any positive integer or `null` | Files NOT accessed within last N days (e.g., `60`, `180`, `365`) |
+| `"modified_within"` | Number or null | Any positive integer or `null` | Files modified within last N days (e.g., `1`, `7`, `30`) |
+| `"not_modified_within"` | Number or null | Any positive integer or `null` | Files NOT modified within last N days (e.g., `60`, `180`, `365`) |
+| `"created_within"` | Number or null | Any positive integer or `null` | Files created within last N days (e.g., `1`, `7`, `30`) |
+| `"not_created_within"` | Number or null | Any positive integer or `null` | Files NOT created within last N days (e.g., `60`, `180`, `365`) |
+| `"owned_by"` | String or null | `"current"`, `"root"`, or `null` | File ownership filter. `"current"` = current user, `"root"` = root user, `null` = any owner |
+| `"logic"` | String | `"all"` or `"any"` | How to combine conditions: `"all"` = AND (all must match), `"any"` = OR (any can match) |
+
+#### Extension Format Examples
+```json
+"ext": [".mp4", ".avi", ".mkv"]          // Video files
+"ext": [".jpg", ".png", ".gif", ".webp"] // Image files  
+"ext": [".pdf", ".doc", ".docx", ".txt"] // Document files
+"ext": [".zip", ".rar", ".7z", ".tar"]   // Archive files
+"ext": [""]                              // Files with no extension
+"ext": null                              // All extensions (no filter)
+```
+
 ## Output Examples
 
 ### Summary Report (summary.csv)
